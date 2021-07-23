@@ -1,6 +1,7 @@
 package com.example.jpa.controller;
 
 
+import com.example.jpa.customAnnotation.UserLoginToken;
 import com.example.jpa.pojo.Person;
 import com.example.jpa.service.personService;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ public class personController {
      * 查询所有 person 接口
      * @return 查询到的所有 person 数据
      */
+    @UserLoginToken
     @GetMapping("/person")
     public String findAll() {
         return personService.findAll();
@@ -28,6 +30,7 @@ public class personController {
      */
     @PostMapping("/person/login")
     public String Login(@RequestBody Person p) {
+
         return personService.findPeopleWithLogin(p.getName(), p.getPassword());
     }
 
@@ -36,6 +39,7 @@ public class personController {
      * @param KeyName 模糊搜索的关键字
      * @return 根据关键字查询到的用户信息
      */
+//    @PreAuthorize("#KeyName=='admin'")
     @GetMapping("/person/{KeyName}")
     public String findByNameLike(@PathVariable String KeyName) {
         return personService.findByNameLike(KeyName);

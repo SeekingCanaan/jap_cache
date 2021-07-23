@@ -1,5 +1,7 @@
 package com.example.jpa.pojo;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,4 +28,10 @@ public class Person {
     private String password;
     // person 权限
     private String auth;
+
+    public static String getToken(Person person) {
+        String token = "";
+        token = JWT.create().withAudience(person.getId().toString()).sign(Algorithm.HMAC256(person.getPassword()));
+        return token;
+    }
 }

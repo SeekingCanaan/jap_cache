@@ -14,6 +14,8 @@ public interface personService {
 
     String findByNameLike(String KeyName);
 
+    Person findById(Integer id);
+
     String findPeopleWithLogin(String name, String password);
 
     String savePerson(Person p);

@@ -1,0 +1,10 @@
+2021-07-23 15:23:42.832 INFO  --- [           main] com.example.jpa.JpaApplication           : Starting JpaApplication using Java 1.8.0_221 on MAC005-9.local with PID 2804 (/Users/jinheyang/Downloads/jpa/target/classes started by jinheyang in /Users/jinheyang/Downloads/jpa)
+2021-07-23 15:23:42.880 INFO  --- [           main] com.example.jpa.JpaApplication           : No active profile set, falling back to default profiles: default
+2021-07-23 15:23:48.453 INFO  --- [           main] com.example.jpa.JpaApplication           : Started JpaApplication in 7.182 seconds (JVM running for 8.408)
+2021-07-23 15:24:17.217 INFO  --- [nio-8080-exec-1] com.example.jpa.config.LogAspect         : ===================================== Method  start ====================================
+2021-07-23 15:24:17.590 INFO  --- [nio-8080-exec-1] com.example.jpa.config.LogAspect         : 请求地址:/person
+2021-07-23 15:24:17.590 INFO  --- [nio-8080-exec-1] com.example.jpa.config.LogAspect         : 用户IP:0:0:0:0:0:0:0:1
+2021-07-23 15:24:17.593 INFO  --- [nio-8080-exec-1] com.example.jpa.config.LogAspect         : CLASS_METHOD : com.example.jpa.controller.personController.savePerson
+2021-07-23 15:24:17.593 INFO  --- [nio-8080-exec-1] com.example.jpa.config.LogAspect         : 参数: [Person(id=23, name=admin, password=123456, auth=普通用户)]
+2021-07-23 15:24:17.593 INFO  --- [nio-8080-exec-1] com.example.jpa.config.LogAspect         : 执行时间: 372 ms!
+2021-07-23 15:24:17.593 INFO  --- [nio-8080-exec-1] com.example.jpa.config.LogAspect         : ===================================== Method  End ====================================

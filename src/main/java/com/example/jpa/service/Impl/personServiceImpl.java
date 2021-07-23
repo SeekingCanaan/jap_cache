@@ -51,6 +51,23 @@ public class personServiceImpl implements personService {
     }
 
     /**
+     * 根据 id 查找
+     * @param id 查找的 id
+     * @return 对应 id 的 person
+     */
+    @Override
+    public Person findById(Integer id) {
+
+        Person person = personRepository.findById(id).get();
+
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("data", person);
+
+        return person;
+    }
+
+    /**
      * 用户登陆验证
      * @param name 登陆用户名
      * @param password 登陆密码
@@ -59,13 +76,24 @@ public class personServiceImpl implements personService {
     @Override
     public String findPeopleWithLogin(String name, String password) {
 
-        Person person = personRepository.findPeopleWithLogin(name, password);
-
         Map<String, Object> map = new HashMap<>();
 
-        map.put("data", person);
+        Person personBase = personRepository.findPeopleWithLogin(name, password);
 
-        return JSON.toJSONString(map);
+        if (personBase == null) {
+            map.put("msg", "登陆失败，用户不存在");
+            return JSON.toJSONString(map);
+        } else {
+            if (!personBase.getPassword().equals(password)) {
+                map.put("msg", "登陆失败，密码错误");
+                return JSON.toJSONString(map);
+            } else {
+                String token = Person.getToken(personBase);
+                map.put("token", token);
+                map.put("person", personBase);
+                return JSON.toJSONString(map);
+            }
+        }
     }
 
     /**

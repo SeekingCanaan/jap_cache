@@ -29,4 +29,9 @@ class PersonRepositoryTest {
     void Login() {
         System.out.println(personRepository.findPeopleWithLogin("admin", "12345"));
     }
+
+    @Test
+    void findById() {
+        System.out.println(personRepository.findById(3));
+    }
 }
