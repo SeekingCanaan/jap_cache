@@ -134,7 +134,7 @@ public class personServiceImpl implements personService {
     }
 
     /**
-     *
+     * 根据 id 删除 person
      * @param id 删除用户的 id
      * @return 删除结果的提示信息
      */
@@ -149,8 +149,8 @@ public class personServiceImpl implements personService {
     }
 
     /**
-     *
-     * @return
+     * 删除所有 person
+     * @return 删除结果的消息提示
      */
     @Override
     public String deleteAll() {
